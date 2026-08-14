@@ -1,0 +1,553 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.png';
+import gameBox from '../assets/team-spirit-box.png';
+
+const NEWSLETTER_URL = "https://56c9395b.sibforms.com/serve/MUIFAHQRE_kJetwfq4Xvq1yr-iTpKe0_KttIH76Q8h0dcOpY0WF7eaebQOhfqAkLRaLAcfL1pRbS2EhW8LYokDav2l_5u1yrSFdq4sk6NMvhhscX2jfBqgKOjB0OdjBBtV7E6JSOd1wOMMC61O4XOCke3e_BeBXtv9IunidCHJ5wWn3YHmJLGhA_-YF9LpYM-DgSKAi3K1-bx1l-jg==";
+---
+<Layout title="Fitzroy Games — Éditeur de Jeux de Société" active="home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-mountains"></div>
+    <div class="hero-content">
+      <Image src={logo} alt="Fitzroy Games" class="hero-logo" width={220} height={220} />
+      <p class="hero-tagline">Éditeur de Jeux de Société</p>
+      <h1 class="hero-title">Des jeux pour<br><em>les passionnés</em></h1>
+      <p class="hero-subtitle">Fitzroy Games crée des jeux pour les passionnés et pas que les passionnés de jeux de société.</p>
+      <div class="hero-actions">
+        <a href="#game" class="btn-primary">Découvrir Team Spirit notre premier jeu</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Découvrir</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-inner">
+      <div class="about-text">
+        <span class="section-label">Notre Maison</span>
+        <h2 class="section-title">Nous créons des jeux pour les passionnés</h2>
+        <p>Nos jeux se nourrissent de vos passions. Passionné de cyclisme, notre premier design vous plonge dans une course cycliste.</p>
+        <div class="about-values">
+          <div class="value-card">
+            <span class="value-icon">♟</span>
+            <h3>Passion</h3>
+            <p>Des mécaniques profondes accessibles à tous les niveaux.</p>
+          </div>
+          <div class="value-card">
+            <span class="value-icon">🤝</span>
+            <h3>Accessible</h3>
+            <p>Facile à apprendre, facile à jouer.</p>
+          </div>
+          <div class="value-card">
+            <span class="value-icon">✦</span>
+            <h3>Qualité</h3>
+            <p>Des composants et illustrations soignés pour l'immersion.</p>
+          </div>
+          <div class="value-card">
+            <span class="value-icon">🎯</span>
+            <h3>Innovation</h3>
+            <p>Des mécaniques de jeu originales qui servent le jeu et l'immersion.</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="about-logo-wrap">
+          <Image src={logo} alt="Fitzroy Games" class="about-logo" width={280} height={280} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" style="padding: 0 5%; max-width: 100%;">
+    <div class="divider-line"></div>
+    <div class="divider-diamond"></div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- GAME -->
+  <section id="game">
+    <div class="game-inner">
+      <div class="game-header">
+        <span class="section-label">Premier Titre — Automne 2025</span>
+        <h2 class="section-title" style="color: var(--white);">Découvrez Team Spirit</h2>
+      </div>
+      <div class="game-layout">
+        <div class="game-logo-panel">
+          <Image src={gameBox} alt="Boîte du jeu Team Spirit" class="game-logo" width={460} />
+          <div class="game-badges">
+            <span class="badge">2–4 Joueurs</span>
+            <span class="badge">30 Minutes</span>
+            <span class="badge">10 ans +</span>
+          </div>
+          <div class="coming-soon-banner">
+            <div class="coming-soon-dot"></div>
+            <span>Disponible à l'automne 2025</span>
+          </div>
+        </div>
+        <div class="game-info">
+          <p class="game-desc">Incarnez un directeur sportif de cyclisme professionnel. Développez votre stratégie, renforcez l'esprit d'équipe et choisissez le moment idéal pour lancer le sprint final vers la gloire !</p>
+          <div class="rules-grid">
+            <div class="rule-item">
+              <h4>🚴 La Course</h4>
+              <p>Construisez un circuit unique à chaque partie avec 5 tuiles de terrain — montagne, colline ou plaine — et menez votre équipe vers la ligne d'arrivée.</p>
+            </div>
+            <div class="rule-item">
+              <h4>🃏 Deckbuilding</h4>
+              <p>Démarrez avec 8 cartes et étoffez votre équipe au fil des tours. Recrutez des leaders, rouleurs, punchers et grimpeurs.</p>
+            </div>
+            <div class="rule-item">
+              <h4>⚡ L'Esprit d'Équipe</h4>
+              <p>Jouez plusieurs cyclistes de même couleur pour déclencher des bonus de cohésion. La synergie fait la différence !</p>
+            </div>
+            <div class="rule-item">
+              <h4>🏆 La Victoire</h4>
+              <p>Utilisez au maximum votre "Team Spirit" jusqu'à épuisement pour être le premier à franchir la ligne d'arrivée et remportez la course.</p>
+            </div>
+          </div>
+          <a href="#newsletter" class="btn-primary" style="display: inline-block; margin-top: 8px;">Être notifié à la sortie</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section id="newsletter">
+    <div class="newsletter-inner">
+      <span class="section-label">Restez Informés</span>
+      <h2 class="section-title">Ne Manquez Rien</h2>
+      <p>Inscrivez-vous à notre newsletter pour être les premiers informés de la sortie de Team Spirit, des avant-premières exclusives et des actualités Fitzroy Games.</p>
+      <a href={NEWSLETTER_URL} target="_blank" class="newsletter-btn">
+        <span>S'inscrire à la Newsletter</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- SOCIAL -->
+  <section id="social">
+    <div class="social-inner">
+      <span class="section-label">Suivez l'Aventure</span>
+      <h2 class="section-title">Sur Instagram</h2>
+      <p>Coulisses, aperçus exclusifs et actualités — rejoignez la communauté Fitzroy Games sur Instagram.</p>
+      <a href="https://www.instagram.com/Fitzroy_Games" target="_blank" class="instagram-btn">
+        <svg class="ig-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+        @Fitzroy_Games
+      </a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy-deep);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: 72px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 30%, rgba(201,162,39,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 80% 80%, rgba(196,98,45,0.06) 0%, transparent 60%),
+      repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(201,162,39,0.025) 60px, rgba(201,162,39,0.025) 61px),
+      repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(201,162,39,0.025) 60px, rgba(201,162,39,0.025) 61px);
+  }
+
+  .hero-mountains {
+    position: absolute;
+    bottom: 0;
+    left: 0; right: 0;
+    height: 280px;
+    opacity: 0.06;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 280'%3E%3Cpolygon points='0,280 200,80 380,200 550,40 720,160 900,30 1080,140 1260,60 1440,120 1440,280' fill='%23c9a227'/%3E%3C/svg%3E") no-repeat bottom center / cover;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 5%;
+    animation: fadeUp 1s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-content :global(.hero-logo) {
+    width: min(220px, 45vw);
+    height: auto;
+    margin-bottom: 48px;
+    filter: drop-shadow(0 0 40px rgba(201,162,39,0.4));
+    animation: fadeUp 1s 0.2s ease both;
+  }
+
+  .hero-tagline {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.65rem, 1.5vw, 0.85rem);
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    animation: fadeUp 1s 0.4s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 6vw, 5rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 24px;
+    animation: fadeUp 1s 0.5s ease both;
+  }
+
+  .hero-title em { font-style: italic; color: var(--gold); }
+
+  .hero-subtitle {
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    font-weight: 300;
+    color: rgba(249,246,241,0.7);
+    max-width: 520px;
+    margin: 0 auto 48px;
+    line-height: 1.7;
+    animation: fadeUp 1s 0.6s ease both;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeUp 1s 0.8s ease both;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    animation: fadeUp 1s 1.2s ease both;
+  }
+
+  .hero-scroll span {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    color: rgba(201,162,39,0.6);
+    text-transform: uppercase;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(201,162,39,0.6), transparent);
+    animation: scrollPulse 2s infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--off-white); }
+
+  .about-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-text p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: #3a3a50;
+    margin-bottom: 16px;
+    font-weight: 300;
+  }
+
+  .about-values {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .value-card {
+    background: white;
+    border: 1px solid var(--gray-light);
+    padding: 24px 20px;
+    border-top: 3px solid var(--gold);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .value-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(30,58,95,0.1); }
+
+  .value-icon { font-size: 1.6rem; margin-bottom: 10px; display: block; }
+
+  .value-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--navy);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .value-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.6; }
+
+  .about-visual { display: flex; align-items: center; justify-content: center; position: relative; }
+
+  .about-logo-wrap { position: relative; }
+
+  .about-logo-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -24px;
+    border: 1px solid rgba(201,162,39,0.3);
+    border-radius: 50%;
+    animation: rotateSlow 20s linear infinite;
+  }
+
+  .about-logo-wrap::after {
+    content: '';
+    position: absolute;
+    inset: -48px;
+    border: 1px dashed rgba(201,162,39,0.15);
+    border-radius: 50%;
+    animation: rotateSlow 30s linear infinite reverse;
+  }
+
+  @keyframes rotateSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .about-logo-wrap :global(.about-logo) {
+    width: 280px;
+    height: 280px;
+    object-fit: contain;
+    position: relative;
+    z-index: 1;
+    border-radius: 50%;
+  }
+
+  /* ── GAME SECTION ── */
+  #game { background: var(--navy-deep); position: relative; overflow: hidden; }
+
+  #game::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 50%, rgba(201,162,39,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 80% 30%, rgba(196,98,45,0.06) 0%, transparent 60%);
+  }
+
+  .game-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+
+  .game-header { text-align: center; margin-bottom: 64px; }
+  .game-header .section-label { color: var(--gold); }
+  .game-header .section-title { color: var(--white); }
+
+  .game-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .game-logo-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .game-logo-panel :global(.game-logo) {
+    width: 100%;
+    max-width: 460px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+  }
+
+  .game-badges { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+  .badge {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy-deep);
+    background: var(--gold);
+    padding: 6px 14px;
+  }
+
+  .game-info { color: var(--white); }
+
+  .game-desc {
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: rgba(249,246,241,0.8);
+    margin-bottom: 40px;
+    font-style: italic;
+    border-left: 3px solid var(--gold);
+    padding-left: 20px;
+  }
+
+  .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
+
+  .rule-item {
+    background: rgba(249,246,241,0.05);
+    border: 1px solid rgba(201,162,39,0.2);
+    padding: 20px;
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .rule-item:hover { background: rgba(201,162,39,0.08); border-color: rgba(201,162,39,0.5); }
+
+  .rule-item h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .rule-item p { font-size: 0.88rem; color: rgba(249,246,241,0.7); line-height: 1.6; }
+
+  .coming-soon-banner {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(201,162,39,0.12);
+    border: 1px solid rgba(201,162,39,0.4);
+    padding: 14px 24px;
+    margin-top: 8px;
+  }
+
+  .coming-soon-banner span {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .coming-soon-dot {
+    width: 8px; height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.7); }
+  }
+
+  /* ── NEWSLETTER ── */
+  #newsletter { background: var(--off-white); text-align: center; }
+
+  .newsletter-inner { max-width: 640px; margin: 0 auto; }
+  .newsletter-inner .section-title { margin-bottom: 16px; }
+  .newsletter-inner p { font-size: 1rem; color: var(--gray); line-height: 1.7; margin-bottom: 40px; font-weight: 300; }
+
+  .newsletter-btn {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--navy);
+    padding: 18px 44px;
+    text-decoration: none;
+    border: 2px solid var(--navy);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .newsletter-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform: translateX(-100%);
+    transition: transform 0.4s;
+    z-index: 0;
+  }
+  .newsletter-btn:hover::before { transform: translateX(0); }
+  .newsletter-btn span { position: relative; z-index: 1; transition: color 0.4s; }
+  .newsletter-btn:hover span { color: var(--navy-deep); }
+
+  /* ── SOCIAL ── */
+  #social { background: var(--navy); text-align: center; padding: 80px 5%; }
+
+  .social-inner { max-width: 500px; margin: 0 auto; }
+  .social-inner .section-label { color: var(--gold); }
+  .social-inner .section-title { color: var(--white); font-size: clamp(1.5rem, 3vw, 2.2rem); }
+  .social-inner p { color: rgba(249,246,241,0.6); font-size: 0.95rem; line-height: 1.7; margin-bottom: 32px; font-weight: 300; }
+
+  .instagram-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+    padding: 14px 28px;
+    border: 1px solid rgba(249,246,241,0.3);
+    transition: all 0.3s;
+  }
+  .instagram-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(201,162,39,0.2);
+  }
+
+  .ig-icon { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .about-inner { grid-template-columns: 1fr; gap: 48px; }
+    .about-visual { order: -1; }
+    .about-logo-wrap :global(.about-logo) { width: 200px; height: 200px; }
+    .game-layout { grid-template-columns: 1fr; gap: 40px; }
+    .rules-grid { grid-template-columns: 1fr; }
+  }
+</style>
