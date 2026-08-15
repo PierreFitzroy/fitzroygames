@@ -16,6 +16,9 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 
 const dateFormatter = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+
+// Récupéré sur cusdis.com après création d'un projet (Settings → App ID)
+const CUSDIS_APP_ID = 'REMPLACE_PAR_TON_APP_ID_CUSDIS';
 ---
 <Layout title={`${post.data.title} — Blog Fitzroy Games`} description={post.data.description} active="blog">
 
@@ -32,6 +35,22 @@ const dateFormatter = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 
   <article class="article-body">
     <Content />
   </article>
+
+  <section class="article-comments">
+    <div class="comments-inner">
+      <span class="section-label">Commentaires</span>
+      <div
+        id="cusdis_thread"
+        data-host="https://cusdis.com"
+        data-app-id={CUSDIS_APP_ID}
+        data-page-id={post.id}
+        data-page-url={Astro.url.href}
+        data-page-title={post.data.title}
+        data-theme="light"
+      ></div>
+    </div>
+  </section>
+  <script is:inline async defer src="https://cusdis.com/js/cusdis.es.js"></script>
 
   <div class="article-footer-nav">
     <a href="/blog/" class="back-to-blog">← Retour au blog</a>
@@ -117,6 +136,10 @@ const dateFormatter = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 
   }
 
   .article-body :global(a) { color: var(--terracotta); }
+
+  .article-comments { padding: 0 5% 60px; }
+  .comments-inner { max-width: 720px; margin: 0 auto; }
+  .comments-inner .section-label { text-align: center; }
 
   .article-footer-nav { max-width: 720px; margin: 0 auto; padding: 0 5% 100px; text-align: center; }
 
