@@ -141,6 +141,10 @@ const CUSDIS_APP_ID = '02bfdd42-3e6b-4f77-bbb8-46f01e82160d';
   .comments-inner { max-width: 720px; margin: 0 auto; }
   .comments-inner .section-label { text-align: center; }
 
+  /* Le script Cusdis ne redimensionne pas toujours l'iframe automatiquement :
+     on force une hauteur minimale généreuse pour éviter un ascenseur interne peu visible. */
+  .comments-inner :global(#cusdis_thread iframe) { min-height: 600px; }
+
   .article-footer-nav { max-width: 720px; margin: 0 auto; padding: 0 5% 100px; text-align: center; }
 
   .back-to-blog {
