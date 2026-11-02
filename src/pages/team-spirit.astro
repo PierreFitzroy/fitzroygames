@@ -1,0 +1,259 @@
+---
+// Page Team Spirit — destination du QR code imprimé.
+// URL publiée : https://fitzroy.games/team-spirit/
+// Page autonome (pas de Layout importé) : optimisée mobile, chargement léger.
+
+// Pour changer les vidéos : remplacer l'ID (partie après youtu.be/ ou ?v=).
+// `title` est optionnel : s'il est vide, aucun titre n'est affiché au-dessus de la vidéo.
+const videos = [
+  { id: 'bXqDPilXWRY', title: '' },
+  { id: 'pmUJ9AZdCqU', title: '' },
+];
+
+const pageTitle = 'Team Spirit — Fitzroy Games';
+const description =
+  'Team Spirit, le jeu de course cycliste de Fitzroy Games : découvrez le jeu en vidéo.';
+const canonical = 'https://fitzroy.games/team-spirit/';
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={`https://i.ytimg.com/vi/${videos[0].id}/hqdefault.jpg`} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@300;400;700&family=Cinzel:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="topbar">
+      <a href="/" class="brand" aria-label="Fitzroy Games — accueil">
+        <img src="/favicon.png" alt="" width="40" height="40" />
+        <span>Fitzroy Games</span>
+      </a>
+      <a href="/" class="topbar-link">Le site</a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <span class="label">Fitzroy Games présente</span>
+        <h1>Team Spirit</h1>
+        <p class="pitch">
+          Prenez la tête d'une équipe cycliste et menez-la jusqu'à la ligne d'arrivée.
+          Un jeu de course et de deckbuilding, sans dés.
+        </p>
+        <ul class="facts" aria-label="Caractéristiques du jeu">
+          <li><strong>2–4</strong><span>joueurs</span></li>
+          <li><strong>30</strong><span>minutes</span></li>
+          <li><strong>10+</strong><span>ans</span></li>
+        </ul>
+      </section>
+
+      <section class="videos" aria-label="Vidéos">
+        {
+          videos.map((v, i) => (
+            <article class="video">
+              {v.title && <h2>{v.title}</h2>}
+              <div class="frame">
+                <a
+                  class="yt-facade"
+                  href={`https://www.youtube.com/watch?v=${v.id}`}
+                  data-id={v.id}
+                  data-title={v.title || `Team Spirit — vidéo ${i + 1}`}
+                  aria-label={`Lire la vidéo${v.title ? ' : ' + v.title : ' ' + (i + 1)}`}
+                >
+                  <img
+                    src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`}
+                    alt=""
+                    width="480"
+                    height="360"
+                    loading={i === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
+                  />
+                  <span class="play" aria-hidden="true">
+                    <svg viewBox="0 0 68 48" width="68" height="48">
+                      <path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.2 34 .2 34 .2s-21.2 0-26.5 1.5a8.5 8.5 0 0 0-6 6C0 13 0 24 0 24s0 11 1.5 16.3a8.5 8.5 0 0 0 6 6C12.8 47.8 34 47.8 34 47.8s21.2 0 26.5-1.5a8.5 8.5 0 0 0 6-6C68 35 68 24 68 24s0-11-1.5-16.3z" fill="#c4622d" />
+                      <path d="M27 34V14l18 10z" fill="#f9f6f1" />
+                    </svg>
+                  </span>
+                </a>
+              </div>
+            </article>
+          ))
+        }
+      </section>
+
+      <section class="next">
+        <h2>Suivez la sortie du jeu</h2>
+        <div class="ctas">
+          <a href="/#newsletter" class="btn btn-gold">Newsletter</a>
+          <a href="https://www.instagram.com/Fitzroy_Games" target="_blank" rel="noopener" class="btn btn-ghost">Instagram</a>
+          <a href="https://www.youtube.com/@Fitzroy_Games" target="_blank" rel="noopener" class="btn btn-ghost">YouTube</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© {new Date().getFullYear()} Fitzroy Games</p>
+      <a href="/">fitzroy.games</a>
+    </footer>
+
+    <script>
+      // Façade : la vidéo YouTube (domaine youtube-nocookie) n'est chargée qu'au clic.
+      // Page plus rapide sur mobile, aucun cookie YouTube déposé avant l'action du visiteur.
+      document.querySelectorAll<HTMLAnchorElement>('.yt-facade').forEach((el) => {
+        el.addEventListener('click', (e) => {
+          e.preventDefault();
+          const iframe = document.createElement('iframe');
+          iframe.src = `https://www.youtube-nocookie.com/embed/${el.dataset.id}?autoplay=1&rel=0&playsinline=1`;
+          iframe.title = el.dataset.title ?? 'Vidéo YouTube';
+          iframe.allow =
+            'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+          iframe.allowFullscreen = true;
+          // YouTube refuse la lecture (erreur 153) si aucun référent n'est transmis.
+          iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+          el.replaceWith(iframe);
+        });
+      });
+    </script>
+
+    <style>
+      :root {
+        --navy: #1e3a5f;
+        --navy-deep: #0f2340;
+        --gold: #c9a227;
+        --gold-light: #e8c94a;
+        --terracotta: #c4622d;
+        --white: #f9f6f1;
+        --off-white: #f2ece3;
+        --gray: #8a8070;
+        --gray-light: #e8e0d4;
+        --text: #1a1a2e;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        background: var(--white);
+        color: var(--text);
+        font-family: Lato, sans-serif;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .topbar {
+        position: sticky; top: 0; z-index: 10;
+        display: flex; justify-content: space-between; align-items: center;
+        height: 60px; padding: 0 16px;
+        background: rgba(15, 35, 64, 0.96);
+        border-bottom: 1px solid rgba(201, 162, 39, 0.3);
+      }
+      .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+      .brand img { width: 40px; height: 40px; border-radius: 50%; }
+      .brand span, .topbar-link {
+        font-family: Cinzel, serif; text-transform: uppercase;
+        letter-spacing: 0.15em; font-size: 0.72rem; color: var(--gray-light);
+        text-decoration: none;
+      }
+      .topbar-link:hover { color: var(--gold); }
+
+      .hero {
+        background: var(--navy-deep);
+        color: var(--white);
+        text-align: center;
+        padding: 48px 16px 56px;
+      }
+      .label {
+        display: block; margin-bottom: 10px;
+        font-family: Cinzel, serif; font-size: 0.65rem;
+        letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold);
+      }
+      h1 {
+        font-family: 'Playfair Display', serif; font-weight: 900;
+        font-size: clamp(2.6rem, 11vw, 4.5rem); line-height: 1.05;
+      }
+      .pitch {
+        max-width: 34rem; margin: 18px auto 0;
+        font-weight: 300; font-size: 1.05rem; color: var(--gray-light);
+      }
+      .facts {
+        list-style: none; display: flex; justify-content: center; gap: 12px;
+        margin-top: 28px;
+      }
+      .facts li {
+        display: flex; flex-direction: column; align-items: center;
+        min-width: 84px; padding: 10px 12px;
+        border: 1px solid rgba(201, 162, 39, 0.4);
+      }
+      .facts strong { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--gold); }
+      .facts span {
+        font-family: Cinzel, serif; font-size: 0.6rem; letter-spacing: 0.15em;
+        text-transform: uppercase; color: var(--gray-light);
+      }
+
+      .videos {
+        display: grid; gap: 32px;
+        max-width: 960px; margin: 0 auto; padding: 40px 16px;
+      }
+      @media (min-width: 900px) { .videos { grid-template-columns: 1fr 1fr; } }
+      .video h2 {
+        font-family: 'Playfair Display', serif; font-size: 1.3rem;
+        color: var(--navy); margin-bottom: 12px;
+      }
+      .frame {
+        position: relative; aspect-ratio: 16 / 9; overflow: hidden;
+        background: var(--navy-deep);
+        border-bottom: 3px solid var(--gold);
+        box-shadow: 0 12px 30px rgba(15, 35, 64, 0.18);
+      }
+      .frame :global(iframe), .yt-facade { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+      .yt-facade { display: block; cursor: pointer; }
+      .yt-facade img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .play {
+        position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+        transition: transform 0.2s;
+      }
+      .yt-facade:hover .play, .yt-facade:focus-visible .play { transform: translate(-50%, -50%) scale(1.1); }
+      .yt-facade:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+      .next {
+        background: var(--off-white); text-align: center; padding: 48px 16px;
+      }
+      .next h2 {
+        font-family: 'Playfair Display', serif; color: var(--navy);
+        font-size: clamp(1.5rem, 5vw, 2.1rem); margin-bottom: 24px;
+      }
+      .ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+      .btn {
+        display: inline-block; padding: 14px 26px;
+        font-family: Cinzel, serif; font-size: 0.78rem; letter-spacing: 0.15em;
+        text-transform: uppercase; text-decoration: none; transition: all 0.3s;
+      }
+      .btn-gold { background: var(--gold); color: var(--navy-deep); border: 2px solid var(--gold); }
+      .btn-gold:hover { background: transparent; color: var(--navy); }
+      .btn-ghost { color: var(--navy); border: 2px solid var(--navy); }
+      .btn-ghost:hover { background: var(--navy); color: var(--white); }
+
+      footer {
+        background: var(--navy-deep); color: rgba(249, 246, 241, 0.5);
+        display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+        padding: 28px 16px; font-size: 0.8rem;
+      }
+      footer a {
+        color: rgba(249, 246, 241, 0.6); text-decoration: none;
+        font-family: Cinzel, serif; letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.65rem;
+      }
+      footer a:hover { color: var(--gold); }
+    </style>
+  </body>
+</html>
