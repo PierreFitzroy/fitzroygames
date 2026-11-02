@@ -6,8 +6,8 @@
 // Pour changer les vidéos : remplacer l'ID (partie après youtu.be/ ou ?v=).
 // `title` est optionnel : s'il est vide, aucun titre n'est affiché au-dessus de la vidéo.
 const videos = [
-  { id: 'qd-OCCwtbN4', title: '' },
   { id: 'pmUJ9AZdCqU', title: '' },
+  { id: 'qd-OCCwtbN4', title: '' },
 ];
 
 const pageTitle = 'Team Spirit — Fitzroy Games';
@@ -90,6 +90,14 @@ const canonical = 'https://fitzroy.games/team-spirit/';
                   </span>
                 </a>
               </div>
+              <a
+                class="yt-link"
+                href={`https://www.youtube.com/watch?v=${v.id}`}
+                target="_blank"
+                rel="noopener"
+              >
+                Voir sur YouTube <span aria-hidden="true">↗</span>
+              </a>
             </article>
           ))
         }
@@ -225,6 +233,12 @@ const canonical = 'https://fitzroy.games/team-spirit/';
       }
       .yt-facade:hover .play, .yt-facade:focus-visible .play { transform: translate(-50%, -50%) scale(1.1); }
       .yt-facade:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+      .yt-link {
+        display: inline-block; margin-top: 12px;
+        font-family: Cinzel, serif; font-size: 0.72rem; letter-spacing: 0.15em;
+        text-transform: uppercase; text-decoration: none; color: var(--terracotta, #c4622d);
+      }
+      .yt-link:hover, .yt-link:focus-visible { text-decoration: underline; }
 
       .next {
         background: var(--off-white); text-align: center; padding: 48px 16px;

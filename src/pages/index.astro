@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import logo from '../assets/logo.png';
-import gameBox from '../assets/team-spirit-box.png';
+import gameBox from '../assets/team-spirit-box-3d.png';
 
 const NEWSLETTER_URL = "https://56c9395b.sibforms.com/serve/MUIFAHQRE_kJetwfq4Xvq1yr-iTpKe0_KttIH76Q8h0dcOpY0WF7eaebQOhfqAkLRaLAcfL1pRbS2EhW8LYokDav2l_5u1yrSFdq4sk6NMvhhscX2jfBqgKOjB0OdjBBtV7E6JSOd1wOMMC61O4XOCke3e_BeBXtv9IunidCHJ5wWn3YHmJLGhA_-YF9LpYM-DgSKAi3K1-bx1l-jg==";
 ---
@@ -398,8 +398,8 @@ const NEWSLETTER_URL = "https://56c9395b.sibforms.com/serve/MUIFAHQRE_kJetwfq4Xv
     width: 100%;
     max-width: 460px;
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+    /* drop-shadow suit le contour de la boîte (PNG transparent), contrairement à box-shadow */
+    filter: drop-shadow(0 24px 40px rgba(0,0,0,0.45));
   }
 
   .game-badges { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
