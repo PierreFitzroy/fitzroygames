@@ -10,9 +10,17 @@ const videos = [
   { id: 'qd-OCCwtbN4', title: 'Un exemple de partie avec 3 joueurs' },   // « Exemple d'une partie à 3 joueurs »
 ];
 
-const pageTitle = 'Team Spirit — Fitzroy Games';
+// Tutoriel interactif : fichiers statiques dans public/team-spirit/tutoriel/
+const tutorial = {
+  href: '/team-spirit/tutoriel/',
+  image: '/team-spirit/tutoriel/apercu.jpg', // 1200 × 630
+  title: 'Le tutoriel interactif',
+  text: "La règle expliquée étape par étape, à manipuler, avec une course d'entraînement.",
+};
+
+const pageTitle = 'Apprendre à jouer à Team Spirit — Fitzroy Games';
 const description =
-  'Team Spirit, le jeu de course cycliste de Fitzroy Games : découvrez le jeu en vidéo.';
+  'Team Spirit, le jeu de course cycliste de Fitzroy Games : apprenez à jouer en vidéo et avec le tutoriel interactif.';
 const canonical = 'https://fitzroy.games/team-spirit/';
 ---
 
@@ -61,6 +69,8 @@ const canonical = 'https://fitzroy.games/team-spirit/';
         </ul>
       </section>
 
+      <h2 class="learn-title">Apprendre à jouer</h2>
+
       <section class="videos" aria-label="Vidéos">
         {
           videos.map((v, i) => (
@@ -101,6 +111,19 @@ const canonical = 'https://fitzroy.games/team-spirit/';
             </article>
           ))
         }
+      </section>
+
+      <section class="tutorial" aria-label="Tutoriel interactif">
+        <a class="tuto-card" href={tutorial.href}>
+          <span class="tuto-frame">
+            <img src={tutorial.image} alt="Aperçu du tutoriel interactif Team Spirit" width="1200" height="630" loading="lazy" decoding="async" />
+          </span>
+          <span class="tuto-body">
+            <span class="tuto-title">{tutorial.title}</span>
+            <span class="tuto-text">{tutorial.text}</span>
+            <span class="btn btn-gold tuto-btn">Ouvrir le tutoriel <span aria-hidden="true">→</span></span>
+          </span>
+        </a>
       </section>
 
       <section class="next">
@@ -239,6 +262,30 @@ const canonical = 'https://fitzroy.games/team-spirit/';
         text-transform: uppercase; text-decoration: none; color: var(--terracotta, #c4622d);
       }
       .yt-link:hover, .yt-link:focus-visible { text-decoration: underline; }
+
+      .learn-title {
+        font-family: 'Playfair Display', serif; color: var(--navy);
+        font-size: clamp(1.5rem, 5vw, 2.1rem); text-align: center;
+        max-width: 960px; margin: 0 auto; padding: 40px 16px 0;
+      }
+      .learn-title + .videos { padding-top: 24px; }
+
+      .tutorial { max-width: 960px; margin: 0 auto; padding: 0 16px 48px; }
+      .tuto-card {
+        display: grid; text-decoration: none; color: inherit;
+        background: var(--navy-deep);
+        border-bottom: 3px solid var(--gold);
+        box-shadow: 0 12px 30px rgba(15, 35, 64, 0.18);
+      }
+      @media (min-width: 720px) { .tuto-card { grid-template-columns: 1.15fr 1fr; align-items: center; } }
+      .tuto-frame { display: block; aspect-ratio: 1200 / 630; overflow: hidden; }
+      .tuto-frame img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+      .tuto-card:hover .tuto-frame img, .tuto-card:focus-visible .tuto-frame img { transform: scale(1.03); }
+      .tuto-card:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+      .tuto-body { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 24px; }
+      .tuto-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--white); }
+      .tuto-text { font-weight: 300; color: var(--gray-light); }
+      .tuto-card:hover .tuto-btn { background: transparent; color: var(--gold); }
 
       .next {
         background: var(--off-white); text-align: center; padding: 48px 16px;
