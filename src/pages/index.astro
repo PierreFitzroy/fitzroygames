@@ -122,11 +122,9 @@ import gameBox from '../assets/team-spirit-box-3d.png';
   <section id="newsletter">
     <div class="newsletter-inner">
       <h2 class="newsletter-lead">Inscrivez-vous à notre newsletter pour être les premiers informés de la sortie de Team Spirit, des avant-premières exclusives et des actualités Fitzroy Games.</h2>
-      <!-- Formulaire d'inscription HubSpot (portail 149476165, région eu1). L'apparence se règle dans HubSpot. -->
-      <div class="newsletter-form">
-        <div class="hs-form-frame" data-region="eu1" data-form-id="4dd9a0d4-4df6-4223-af0f-4800fad548d9" data-portal-id="149476165"></div>
-      </div>
-      <script is:inline src="https://js-eu1.hsforms.net/forms/embed/149476165.js" defer></script>
+      <a href="/newsletter/" class="newsletter-btn">
+        <span>S'inscrire à la Newsletter</span>
+      </a>
     </div>
   </section>
 
@@ -489,7 +487,34 @@ import gameBox from '../assets/team-spirit-box-3d.png';
     margin-bottom: 40px;
   }
 
-  .newsletter-form { text-align: left; min-height: 200px; }
+  .newsletter-btn {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--navy);
+    padding: 18px 44px;
+    text-decoration: none;
+    border: 2px solid var(--navy);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .newsletter-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform: translateX(-100%);
+    transition: transform 0.4s;
+    z-index: 0;
+  }
+  .newsletter-btn:hover::before { transform: translateX(0); }
+  .newsletter-btn span { position: relative; z-index: 1; transition: color 0.4s; }
+  .newsletter-btn:hover span { color: var(--navy-deep); }
 
   /* ── SOCIAL ── */
   #social { background: var(--navy); text-align: center; padding: 80px 5%; }

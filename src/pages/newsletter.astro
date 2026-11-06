@@ -1,0 +1,65 @@
+---
+// Page d'inscription à la newsletter : formulaire HubSpot (portail 149476165, région eu1).
+// L'apparence du formulaire (champs, couleurs, bouton, message de confirmation) se règle dans HubSpot.
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Newsletter — Fitzroy Games" description="Inscrivez-vous à la newsletter Fitzroy Games : sortie de Team Spirit, avant-premières exclusives et actualités.">
+
+  <header class="page-header">
+    <div class="page-header-inner">
+      <span class="section-label">Fitzroy Games</span>
+      <h1 class="page-title">Newsletter</h1>
+      <p class="page-subtitle">Inscrivez-vous pour être les premiers informés de la sortie de Team Spirit, des avant-premières exclusives et des actualités Fitzroy Games.</p>
+    </div>
+  </header>
+
+  <section class="signup">
+    <div class="signup-inner">
+      <div class="hs-form-frame" data-region="eu1" data-form-id="4dd9a0d4-4df6-4223-af0f-4800fad548d9" data-portal-id="149476165"></div>
+    </div>
+  </section>
+
+  <script is:inline src="https://js-eu1.hsforms.net/forms/embed/149476165.js" defer></script>
+
+</Layout>
+
+<style>
+  .page-header {
+    background: var(--navy-deep);
+    padding: 160px 5% 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 50%, rgba(201,162,39,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 80% 30%, rgba(196,98,45,0.06) 0%, transparent 60%);
+  }
+
+  .page-header-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+
+  .page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .page-subtitle {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: rgba(249,246,241,0.7);
+    line-height: 1.7;
+  }
+
+
+  .signup { background: var(--off-white); padding: 64px 5% 96px; }
+  .signup-inner { max-width: 640px; margin: 0 auto; min-height: 320px; }
+</style>
