@@ -232,7 +232,7 @@ footer {
 
 .footer-copy { font-size: 0.8rem; color: rgba(249,246,241,0.35); font-weight: 300; }
 
-.footer-links { display: flex; gap: 24px; }
+.footer-links { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
 
 .footer-links a {
   font-family: 'Cinzel', serif;
@@ -245,6 +245,10 @@ footer {
 }
 .footer-links a:hover { color: var(--gold); }
 
+.footer-social { display: inline-flex; align-items: center; gap: 8px; }
+.footer-icon { width: 16px; height: 16px; flex-shrink: 0; }
+
 @media (max-width: 768px) {
   .footer-inner { flex-direction: column; text-align: center; }
+  .footer-links { justify-content: center; }
 }
