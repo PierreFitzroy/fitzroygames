@@ -113,7 +113,6 @@ const NEWSLETTER_URL = "https://56c9395b.sibforms.com/serve/MUIFAHQRE_kJetwfq4Xv
           </div>
         <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px;">
         <a href="/team-spirit/" class="btn-secondary">Apprendre à jouer à Team Spirit</a>
-        <a href="#newsletter" class="btn-primary">Être notifié à la sortie</a>
   </div>
         </div>
       </div>
@@ -123,9 +122,7 @@ const NEWSLETTER_URL = "https://56c9395b.sibforms.com/serve/MUIFAHQRE_kJetwfq4Xv
   <!-- NEWSLETTER -->
   <section id="newsletter">
     <div class="newsletter-inner">
-      <span class="section-label">Restez Informés</span>
-      <h2 class="section-title">Ne Manquez Rien</h2>
-      <p>Inscrivez-vous à notre newsletter pour être les premiers informés de la sortie de Team Spirit, des avant-premières exclusives et des actualités Fitzroy Games.</p>
+      <h2 class="newsletter-lead">Inscrivez-vous à notre newsletter pour être les premiers informés de la sortie de Team Spirit, des avant-premières exclusives et des actualités Fitzroy Games.</h2>
       <a href={NEWSLETTER_URL} target="_blank" class="newsletter-btn">
         <span>S'inscrire à la Newsletter</span>
       </a>
@@ -482,8 +479,14 @@ const NEWSLETTER_URL = "https://56c9395b.sibforms.com/serve/MUIFAHQRE_kJetwfq4Xv
   #newsletter { background: var(--off-white); text-align: center; }
 
   .newsletter-inner { max-width: 640px; margin: 0 auto; }
-  .newsletter-inner .section-title { margin-bottom: 16px; }
-  .newsletter-inner p { font-size: 1rem; color: var(--gray); line-height: 1.7; margin-bottom: 40px; font-weight: 300; }
+  .newsletter-lead {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.35;
+    margin-bottom: 40px;
+  }
 
   .newsletter-btn {
     display: inline-block;
