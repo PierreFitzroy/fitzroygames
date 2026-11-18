@@ -23,6 +23,7 @@ const description =
   'Team Spirit, le jeu de course cycliste de Fitzroy Games : apprenez à jouer en vidéo et avec le tutoriel interactif.';
 const canonical = 'https://fitzroy.games/team-spirit/';
 import SiteFooter from '../components/SiteFooter.astro';
+import HubSpotTracking from '../components/HubSpotTracking.astro';
 ---
 
 <!doctype html>
@@ -245,5 +246,6 @@ import SiteFooter from '../components/SiteFooter.astro';
       .btn-gold:hover { background: transparent; color: var(--navy); }
 
     </style>
+    <HubSpotTracking />
   </body>
 </html>
